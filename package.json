@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/gitusp/flyd-promise-state/issues"
   },
-  "homepage": "https://github.com/gitusp/flyd-promise-state#readme"
+  "homepage": "https://github.com/gitusp/flyd-promise-state#readme",
+  "dependencies": {
+    "flyd": "^0.2.8"
+  }
 }

@@ -1,19 +1,17 @@
 {
   "name": "flyd-promise-state",
   "version": "0.0.1",
-  "description": "Promise utility for Flyd focusing on state changes on Promise.",
+  "description":
+    "Promise utility for Flyd focusing on state changes on Promise.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gitusp/flyd-promise-state.git"
   },
-  "keywords": [
-    "flyd",
-    "promise"
-  ],
+  "keywords": ["flyd", "promise"],
   "author": "usp",
   "license": "MIT",
   "bugs": {
@@ -22,5 +20,10 @@
   "homepage": "https://github.com/gitusp/flyd-promise-state#readme",
   "dependencies": {
     "flyd": "^0.2.8"
+  },
+  "devDependencies": {
+    "babel-jest": "^24.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "jest": "^24.1.0"
   }
 }

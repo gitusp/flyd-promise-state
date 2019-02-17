@@ -1,5 +1,11 @@
 import flyd from "flyd";
-import { toStateStream, toValueStream, toReasonStream } from ".";
+import {
+  toStateStream,
+  filterFulfilled,
+  filterRejected,
+  toValueStream,
+  toReasonStream
+} from ".";
 
 test("toStateStream - fulfilled", async () => {
   const resolver = flyd.stream();
@@ -41,8 +47,10 @@ test("toStateStream - rejected", async () => {
   });
 });
 
-test("toValueStream", async () => {
+test("filter", async () => {
   const s = flyd.stream();
+  const ff = filterFulfilled(s);
+  const fr = filterRejected(s);
   const vs = toValueStream(s);
   const rs = toReasonStream(s);
 
@@ -54,6 +62,8 @@ test("toValueStream", async () => {
 
   s({ state: "pending" });
 
+  expect(ff()).toEqual({ state: "fulfilled", value });
+  expect(fr()).toEqual({ state: "rejected", reason });
   expect(vs()).toBe(value);
   expect(rs()).toBe(reason);
 });

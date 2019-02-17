@@ -16,8 +16,10 @@ export const toStateStream = p => {
   return s;
 };
 
-export const toValueStream = s =>
-  filter(v => v.state === "fulfilled", s).map(v => v.value);
+export const filterFulfilled = s => filter(v => v.state === "fulfilled", s);
 
-export const toReasonStream = s =>
-  filter(v => v.state === "rejected", s).map(v => v.reason);
+export const filterRejected = s => filter(v => v.state === "rejected", s);
+
+export const toValueStream = s => filterFulfilled(s).map(v => v.value);
+
+export const toReasonStream = s => filterRejected(s).map(v => v.reason);

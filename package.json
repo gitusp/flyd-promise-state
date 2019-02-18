@@ -1,6 +1,6 @@
 {
   "name": "flyd-promise-state",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description":
     "Promise utility for Flyd focusing on state changes on Promise.",
   "main": "index.js",

@@ -2,7 +2,7 @@ export type PromiseStatePending = { state: "pending" };
 
 export type PromiseStateFulfilled<T> = { state: "fulfilled"; value: T };
 
-export type PromiseStateRejected = { state: "rejected"; value: Error };
+export type PromiseStateRejected = { state: "rejected"; reason: Error };
 
 export type PromiseState<T> =
   | PromiseStatePending

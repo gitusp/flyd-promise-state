@@ -13,22 +13,18 @@ export declare function toStateStream<T>(
   promise: Promise<T> | PromiseLike<T>
 ): flyd.Stream<PromiseState<T>>;
 
-export declare function filterFulfilled<
-  T,
-  U extends PromiseState<T>,
-  V extends PromiseStateFulfilled<T>
->(stream: flyd.Stream<U>): flyd.Stream<V>;
+export declare function filterFulfilled<T, M = {}>(
+  stream: flyd.Stream<PromiseState<T> & M>
+): flyd.Stream<PromiseStateFulfilled<T> & M>;
 
-export declare function filterRejected<
-  T,
-  U extends PromiseState<T>,
-  V extends PromiseStateRejected
->(stream: flyd.Stream<U>): flyd.Stream<V>;
+export declare function filterRejected<T, M = {}>(
+  stream: flyd.Stream<PromiseState<T> & M>
+): flyd.Stream<PromiseStateRejected & M>;
 
-export declare function toValueStream<T, U extends PromiseState<T>>(
-  stream: flyd.Stream<U>
+export declare function toValueStream<T, M = {}>(
+  stream: flyd.Stream<PromiseState<T> & M>
 ): flyd.Stream<T>;
 
-export declare function toReasonStream<T, U extends PromiseState<T>>(
-  stream: flyd.Stream<U>
+export declare function toReasonStream<T, M = {}>(
+  stream: flyd.Stream<PromiseState<T> & M>
 ): flyd.Stream<Error>;
